@@ -13,6 +13,13 @@
   "main": "lib/start-server.js",
   "typings": "lib/start-server.d.ts",
   "dependencies": {
+    "@types/chai": "^3.4.34",
+    "@types/esprima": "^2.1.33",
+    "@types/estree": "*",
+    "@types/fuzzaldrin": "^2.1.0",
+    "@types/mocha": "^2.2.38",
+    "@types/node": "^7.0.13",
+    "typescript": "^2.1.5",
     "@glimmer/syntax": "^0.23.0-alpha.7",
     "ast-types": "^0.9.4",
     "chokidar": "^1.6.1",
@@ -25,24 +32,17 @@
     "vscode-languageserver": "^3.0.4"
   },
   "devDependencies": {
-    "@types/chai": "^3.4.34",
-    "@types/esprima": "^2.1.33",
-    "@types/estree": "*",
-    "@types/fuzzaldrin": "^2.1.0",
-    "@types/mocha": "^2.2.38",
-    "@types/node": "^7.0.13",
     "chai": "^3.5.0",
     "mocha": "^3.2.0",
     "mocha-tslint": "^0.3.0",
     "ts-node": "^3.0.2",
-    "tslint": "^5.1.0",
-    "typescript": "^2.1.5"
+    "tslint": "^5.1.0"
   },
   "scripts": {
     "clean": "rm -rf lib/",
     "compile": "tsc -p .",
     "lint": "tslint --project ./tsconfig.json",
-    "prepublish": "npm run clean && npm run compile",
+    "postinstall": "npm run clean && npm run compile",
     "test": "mocha --require ts-node/register test/*.ts",
     "watch": "tsc --watch -p ."
   }
